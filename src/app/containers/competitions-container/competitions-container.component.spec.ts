@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideMockStore } from '@ngrx/store/testing';
 import { MockComponent } from 'ng-mocks';
 
-import { NavigationCardsComponent } from '../../shared/navigation-cards/navigation-cards/navigation-cards.component';
+import { CardListComponent } from '../../shared/card-list/navigation-cards/card-list.component';
 import { initialState } from '../../store/competition/reducer';
 import { CompetitionsContainerComponent } from './competitions-container.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LeaguesContainerComponent', () => {
   let component: CompetitionsContainerComponent;
@@ -14,7 +14,7 @@ describe('LeaguesContainerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [NoopAnimationsModule],
-      declarations: [CompetitionsContainerComponent, MockComponent(NavigationCardsComponent)],
+      declarations: [CompetitionsContainerComponent, MockComponent(CardListComponent)],
       providers: [provideMockStore({ initialState: { competitions: initialState() } })],
     }).compileComponents();
   }));

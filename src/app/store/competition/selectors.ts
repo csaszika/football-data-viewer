@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 
-import { NavCardItem } from '../../shared/navigation-cards/interfaces/nav-card-item';
+import { CardListItem } from '../../shared/card-list/interfaces/card-list-item';
 import { Competition } from '../../shared/types/competitions';
 import { AppState } from '../index';
 import { CompetitionState } from './reducer';
@@ -9,13 +9,13 @@ export const selectCompetitionsFeature = (state: AppState): CompetitionState => 
 
 export const selectCompetitions = createSelector(selectCompetitionsFeature, (state: CompetitionState): Competition[] => state.competitions);
 
-export const selectCompetitionsForNavCards = createSelector(selectCompetitions, (competitions: Competition[]): NavCardItem[] => {
+export const selectCompetitionsForNavCards = createSelector(selectCompetitions, (competitions: Competition[]): CardListItem[] => {
   return competitions.map((competition: Competition) => {
     return {
+      id: competition.id,
       title: competition.name,
       description: competition.area.name,
-      url: `${competition.name}`,
-    } as NavCardItem;
+    } as CardListItem;
   });
 });
 

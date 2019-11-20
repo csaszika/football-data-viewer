@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 
-import { NavigationCardsComponent } from './navigation-cards/navigation-cards.component';
+import { CardListComponent } from './navigation-cards/card-list.component';
 
 @NgModule({
-  declarations: [NavigationCardsComponent],
+  declarations: [CardListComponent],
   imports: [CommonModule, MatCardModule, RouterModule],
-  exports: [NavigationCardsComponent],
+  exports: [CardListComponent],
 })
-export class NavigationCardsModule {}
+export class CardListModule {}

@@ -1,12 +1,13 @@
-import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 
-import { Competition } from '../../shared/types/competitions';
+import { Competition, CompetitionId } from '../../shared/types/competitions';
 import * as CompetitionActions from './actions';
 
 export interface CompetitionState {
   competitions: Array<Competition>;
   loading: boolean;
   error: boolean;
+  selectedCompetition: CompetitionId;
 }
 
 export const initialState = (): CompetitionState => {
@@ -14,6 +15,7 @@ export const initialState = (): CompetitionState => {
     competitions: [],
     loading: false,
     error: false,
+    selectedCompetition: undefined,
   };
 };
 
@@ -25,7 +27,11 @@ const songsReducer = createReducer(
     loading: false,
     competitions: [...competitions],
   })),
-  on(CompetitionActions.loadCompetitionsFailed, (state: CompetitionState) => ({ ...state, loading: false, error: true }))
+  on(CompetitionActions.loadCompetitionsFailed, (state: CompetitionState) => ({ ...state, loading: false, error: true })),
+  on(CompetitionActions.selectCompetition, (state: CompetitionState, { competitionId }) => ({
+    ...state,
+    selectedCompetition: competitionId,
+  }))
 );
 
 // tslint:disable-next-line:only-arrow-functions

@@ -3,12 +3,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { componentTestingSetup } from 'angular-unit-component-driver';
 import { MockComponent } from 'ng-mocks';
 
-import { NavigationCardsComponent } from './navigation-cards.component';
-import { NavigationCardsComponentDriver } from './navigation-cards.driver';
+import { CardListComponent } from './card-list.component';
+import { NavigationCardsComponentDriver } from './card-list.driver';
 
 const componentSetup = (): NavigationCardsComponentDriver => {
   return componentTestingSetup({
-    componentClass: NavigationCardsComponent,
+    componentClass: CardListComponent,
     driver: NavigationCardsComponentDriver,
     imports: [RouterTestingModule],
     declarations: [MockComponent(MatCard), MockComponent(MatCardTitle), MockComponent(MatCardSubtitle)],

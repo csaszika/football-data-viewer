@@ -8,21 +8,22 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccessTokenInterceptor } from './core/interceptors/access-token.interceptor';
-import { NavigationCardsModule } from './shared/navigation-cards/navigation-cards.module';
 import { CompetitionsContainerComponent } from './containers/competitions-container/competitions-container.component';
+import { MatchesContainerComponent } from './containers/matches-container/matches-container.component';
+import { AccessTokenInterceptor } from './core/interceptors/access-token.interceptor';
+import { CardListModule } from './shared/card-list/card-list.module';
 import { reducers } from './store';
 import { CompetitionsEffects } from './store/competition/effects';
 
 @NgModule({
-  declarations: [AppComponent, CompetitionsContainerComponent],
+  declarations: [AppComponent, CompetitionsContainerComponent, MatchesContainerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
-    NavigationCardsModule,
+    CardListModule,
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
         strictStateImmutability: true,

@@ -1,26 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatToolbarModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material';
-import { LeaguesContainerComponent } from './shell/leagues-container/leagues-container.component';
 import { NavigationCardsModule } from './shared/navigation-cards/navigation-cards.module';
+import { CompetitionsContainerComponent } from './shell/leagues-container/competitions-container.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LeaguesContainerComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    NavigationCardsModule
-  ],
+  declarations: [AppComponent, CompetitionsContainerComponent],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, NavigationCardsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

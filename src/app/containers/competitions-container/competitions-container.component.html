@@ -1,7 +1,7 @@
 <section class="competitions-container">
 
   <div *ngIf="(competitions$ | async) as competitions" [@cardListAnimation]="competitions.length">
-    <app-navigation-cards [navCardItems]="competitions" (onCardClick)="navigateToMatches($event)"></app-navigation-cards>
+    <app-card-list [navCardItems]="competitions" (cardClick)="navigateToMatches($event)"></app-card-list>
   </div>
 
   <div *ngIf="loading$ | async">Loading...</div>

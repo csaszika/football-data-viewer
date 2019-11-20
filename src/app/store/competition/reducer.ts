@@ -19,7 +19,7 @@ export const initialState = (): CompetitionState => {
   };
 };
 
-const songsReducer = createReducer(
+const competitionsReducer = createReducer(
   initialState(),
   on(CompetitionActions.getCompetitions, (state: CompetitionState) => ({ ...state, loading: true, error: false })),
   on(CompetitionActions.loadCompetitions, (state: CompetitionState, { competitions }) => ({
@@ -28,13 +28,15 @@ const songsReducer = createReducer(
     competitions: [...competitions],
   })),
   on(CompetitionActions.loadCompetitionsFailed, (state: CompetitionState) => ({ ...state, loading: false, error: true })),
-  on(CompetitionActions.selectCompetition, (state: CompetitionState, { competitionId }) => ({
-    ...state,
-    selectedCompetition: competitionId,
-  }))
+  on(CompetitionActions.selectCompetition, (state: CompetitionState, { competitionId }) => {
+    return {
+      ...state,
+      selectedCompetition: competitionId,
+    };
+  })
 );
 
 // tslint:disable-next-line:only-arrow-functions
 export function reducer(state: CompetitionState, action: Action): CompetitionState {
-  return songsReducer(state, action);
+  return competitionsReducer(state, action);
 }

@@ -1,0 +1,14 @@
+<section class="matches-container">
+
+  <div *ngIf="(matches$ | async) as matches" [@cardListAnimation]="matches.length">
+    <app-card-list [navCardItems]="matches"></app-card-list>
+  </div>
+
+  <div *ngIf="loading$ | async">Loading...</div>
+  <div *ngIf="error$ | async" class="matches-container__error">
+    <span>
+      Something went wrong, perhaps you chose a competition I do not have a right to get it from the API. Use UEFA Champions League.
+    </span>
+  </div>
+
+</section>

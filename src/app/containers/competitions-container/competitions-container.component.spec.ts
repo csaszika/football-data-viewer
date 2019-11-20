@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { MockComponent } from 'ng-mocks';
 
@@ -13,7 +14,7 @@ describe('LeaguesContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule],
+      imports: [NoopAnimationsModule, RouterTestingModule],
       declarations: [CompetitionsContainerComponent, MockComponent(CardListComponent)],
       providers: [provideMockStore({ initialState: { competitions: initialState() } })],
     }).compileComponents();

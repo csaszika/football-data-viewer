@@ -7,7 +7,7 @@ import { cardListAnimation } from '../../shared/animations/card-list.animations'
 import { CardListItem } from '../../shared/card-list/interfaces/card-list-item';
 import { AppState } from '../../store';
 import { getCompetitions, selectCompetition } from '../../store/competition/actions';
-import { selectCompetitionsError, selectCompetitionsForNavCards, selectCompetitionsLoading } from '../../store/competition/selectors';
+import { selectCompetitionsError, selectCompetitionsForCards, selectCompetitionsLoading } from '../../store/competition/selectors';
 
 @Component({
   selector: 'app-leagues-container',
@@ -16,7 +16,7 @@ import { selectCompetitionsError, selectCompetitionsForNavCards, selectCompetiti
   animations: [cardListAnimation],
 })
 export class CompetitionsContainerComponent implements OnInit {
-  competitions$: Observable<CardListItem[]> = this.store.pipe(select(selectCompetitionsForNavCards));
+  competitions$: Observable<CardListItem[]> = this.store.pipe(select(selectCompetitionsForCards));
   loading$: Observable<boolean> = this.store.pipe(select(selectCompetitionsLoading));
   error$: Observable<boolean> = this.store.pipe(select(selectCompetitionsError));
 

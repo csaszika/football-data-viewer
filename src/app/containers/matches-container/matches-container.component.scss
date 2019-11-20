@@ -1,0 +1,11 @@
+.matches-container {
+
+  .matches-container__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 50%;
+    font-size: 24px;
+  }
+}

@@ -15,7 +15,7 @@ const componentSetup = (): NavigationCardsComponentDriver => {
   });
 };
 
-describe('NavigationCardsComponent', () => {
+describe('CardListComponent', () => {
   let driver: NavigationCardsComponentDriver;
 
   Given(() => {
@@ -28,12 +28,12 @@ describe('NavigationCardsComponent', () => {
         {
           title: 'Competition 1',
           description: 'area 1',
-          url: 'Competition 1',
+          id: 1,
         },
         {
           title: 'Competition 1',
           description: 'area 2',
-          url: 'Competition 1',
+          id: 2,
         },
       ];
       driver.detectChanges();
@@ -42,9 +42,37 @@ describe('NavigationCardsComponent', () => {
     Then('should create', () => {
       expect(driver.componentInstance).toBeTruthy();
     });
+  });
 
-    Then('could navigate to route', () => {
-      expect(driver.firstPlanCard.getAttribute('ng-reflect-router-link')).toEqual('Competition 1');
+  describe('Events', () => {
+    let spyClick;
+    Given(() => {
+      driver.componentInstance.navCardItems = [
+        {
+          title: 'Competition 1',
+          description: 'area 1',
+          id: 1,
+        },
+        {
+          title: 'Competition 1',
+          description: 'area 2',
+          id: 2,
+        },
+      ];
+      driver.detectChanges();
+      spyClick = spyOn(driver.componentInstance.cardClick, 'emit').and.callThrough();
+    });
+
+    When(() => {
+      driver.firstPlanCard.click();
+    });
+
+    Then('should emit click event', () => {
+      expect(spyClick).toHaveBeenCalledWith({
+        title: 'Competition 1',
+        description: 'area 1',
+        id: 1,
+      });
     });
   });
 });

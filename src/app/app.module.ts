@@ -14,6 +14,7 @@ import { AccessTokenInterceptor } from './core/interceptors/access-token.interce
 import { CardListModule } from './shared/card-list/card-list.module';
 import { reducers } from './store';
 import { CompetitionsEffects } from './store/competition/effects';
+import { MatchesEffects } from './store/matches/effects';
 
 @NgModule({
   declarations: [AppComponent, CompetitionsContainerComponent, MatchesContainerComponent],
@@ -30,7 +31,7 @@ import { CompetitionsEffects } from './store/competition/effects';
         strictActionImmutability: true,
       },
     }),
-    EffectsModule.forRoot([CompetitionsEffects]),
+    EffectsModule.forRoot([CompetitionsEffects, MatchesEffects]),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AccessTokenInterceptor, multi: true }],
   bootstrap: [AppComponent],

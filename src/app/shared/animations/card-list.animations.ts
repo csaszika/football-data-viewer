@@ -8,9 +8,9 @@ export const cardListAnimation = trigger('cardListAnimation', [
 
     query(
       ENTER,
-      stagger('200ms', [
+      stagger('100ms', [
         animate(
-          '800ms ease-in',
+          '600ms ease-in',
           keyframes([
             style({ opacity: 0, transform: 'translateY(-70px)', offset: 0 }),
             style({ opacity: 0.5, transform: 'translateY(15px)', offset: 0.3 }),

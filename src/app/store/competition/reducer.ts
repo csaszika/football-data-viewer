@@ -1,6 +1,6 @@
 import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 
-import { Competition } from '../../shell/types/competitions';
+import { Competition } from '../../shared/types/competitions';
 import * as CompetitionActions from './actions';
 
 export interface CompetitionState {

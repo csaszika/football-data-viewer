@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { catchError, delay, map, switchMap } from 'rxjs/operators';
 
 import { baseApiUrl } from '../../shared/constants/http.constants';
-import { CompetitionList } from '../../shell/types/competitions';
+import { CompetitionList } from '../../shared/types/competitions';
 import { getCompetitions, loadCompetitions, loadCompetitionsFailed } from './actions';
 
 @Injectable()

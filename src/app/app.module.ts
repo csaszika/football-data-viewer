@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccessTokenInterceptor } from './core/interceptors/access-token.interceptor';
 import { NavigationCardsModule } from './shared/navigation-cards/navigation-cards.module';
-import { CompetitionsContainerComponent } from './shell/competitions-container/competitions-container.component';
+import { CompetitionsContainerComponent } from './containers/competitions-container/competitions-container.component';
 import { reducers } from './store';
 import { CompetitionsEffects } from './store/competition/effects';
 

@@ -1,7 +1,7 @@
 import { createSelector } from '@ngrx/store';
 
 import { NavCardItem } from '../../shared/navigation-cards/interfaces/nav-card-item';
-import { Competition } from '../../shell/types/competitions';
+import { Competition } from '../../shared/types/competitions';
 import { AppState } from '../index';
 import { CompetitionState } from './reducer';
 

@@ -1,5 +1,7 @@
 <section class="matches-container">
 
+  <h1 class="matches-container__title">{{ (competition$ | async)?.name }}</h1>
+
   <div *ngIf="(matches$ | async) as matches"
        class="matches-container__match-cards"
        [@cardListAnimation]="matches.length">

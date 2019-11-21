@@ -1,5 +1,10 @@
 .matches-container {
 
+  .matches-container__title {
+    margin: 10px;
+    color: white;
+  }
+
   .matches-container__match-cards {
     display: flex;
     flex-wrap: wrap;

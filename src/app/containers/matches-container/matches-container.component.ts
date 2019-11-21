@@ -5,11 +5,11 @@ import { first } from 'rxjs/operators';
 
 import { cardListAnimation } from '../../shared/animations/card-list.animations';
 import { CompetitionId } from '../../shared/types/competitions';
-import { Match, MatchStatus } from '../../shared/types/matches';
+import { CompetitionOfMatch, Match, MatchStatus } from '../../shared/types/matches';
 import { AppState } from '../../store';
 import { selectCompetitionId } from '../../store/competition/selectors';
 import { getMatches } from '../../store/matches/actions';
-import { selectMatches, selectMatchesError, selectMatchesLoading } from '../../store/matches/selectors';
+import { selectCompetitionOfMatches, selectMatches, selectMatchesError, selectMatchesLoading } from '../../store/matches/selectors';
 
 @Component({
   selector: 'app-matches-container',
@@ -22,6 +22,7 @@ export class MatchesContainerComponent implements OnInit {
 
   matchStatuses = MatchStatus;
 
+  competition$: Observable<CompetitionOfMatch> = this.store.pipe(select(selectCompetitionOfMatches));
   matches$: Observable<Match[]> = this.store.pipe(select(selectMatches));
   loading$: Observable<boolean> = this.store.pipe(select(selectMatchesLoading));
   error$: Observable<boolean> = this.store.pipe(select(selectMatchesError));

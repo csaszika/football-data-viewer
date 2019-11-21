@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CompetitionsContainerComponent } from './containers/competitions-container/competitions-container.component';
 import { MatchesContainerComponent } from './containers/matches-container/matches-container.component';
+import { MatchesContainerGuard } from './core/guards/matches-container.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   {
     path: ':competitionName',
     component: MatchesContainerComponent,
+    canActivate: [MatchesContainerGuard],
   },
 ];
 

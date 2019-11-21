@@ -1,6 +1,8 @@
 <section class="competitions-container">
 
-  <div *ngIf="(competitions$ | async) as competitions" [@cardListAnimation]="competitions.length">
+  <div *ngIf="(competitions$ | async) as competitions"
+       class="competitions-container__competition-cards"
+       [@cardListAnimation]="competitions.length">
     <mat-card *ngFor="let competition of competitions" (click)="navigateToMatches(competition)">
       <mat-card-title>{{competition.name}}</mat-card-title>
       <mat-card-subtitle>{{competition.area.name}}</mat-card-subtitle>

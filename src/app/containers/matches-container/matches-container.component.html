@@ -1,8 +1,10 @@
 <section class="matches-container">
 
-  <div *ngIf="(matches$ | async) as matches" [@cardListAnimation]="matches.length">
+  <div *ngIf="(matches$ | async) as matches"
+       class="matches-container__match-cards"
+       [@cardListAnimation]="matches.length">
     <mat-card *ngFor="let match of matches">
-      <mat-card-title>{{match.homeTeam.name - match.awayTeam.name}}</mat-card-title>
+      <mat-card-title>{{match.homeTeam.name}} - {{match.awayTeam.name}}</mat-card-title>
       <mat-card-subtitle>{{match.status}}</mat-card-subtitle>
     </mat-card>
   </div>

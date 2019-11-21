@@ -1,5 +1,27 @@
 .matches-container {
 
+  .matches-container__match-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5px;
+
+    mat-card {
+      cursor: pointer;
+      margin: 5px 1px 5px 1px;
+      width: 29%;
+
+      mat-card-title {
+        text-align: center;
+      }
+
+      mat-card-subtitle {
+        margin: 10px;
+        text-align: center;
+      }
+    }
+  }
+
   .matches-container__error {
     display: flex;
     justify-content: center;

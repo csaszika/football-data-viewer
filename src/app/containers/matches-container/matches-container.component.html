@@ -5,7 +5,7 @@
   <div *ngIf="(matches$ | async) as matches"
        class="matches-container__match-cards"
        [@cardListAnimation]="matches.length">
-    <mat-card *ngFor="let match of matches">
+    <mat-card *ngFor="let match of matches" (click)="navigateToMatchDetails(match)">
       <mat-card-title>{{match.homeTeam.name}} - {{match.awayTeam.name}}</mat-card-title>
       <mat-card-subtitle [ngClass]="{
       'live': match.status === matchStatuses.LIVE,

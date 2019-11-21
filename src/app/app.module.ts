@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompetitionsContainerComponent } from './containers/competitions-container/competitions-container.component';
+import { MatchDetailsContainerComponent } from './containers/match-details-container/match-details-container.component';
 import { MatchesContainerComponent } from './containers/matches-container/matches-container.component';
 import { AccessTokenInterceptor } from './core/interceptors/access-token.interceptor';
 import { reducers } from './store';
@@ -16,7 +17,7 @@ import { CompetitionsEffects } from './store/competition/effects';
 import { MatchesEffects } from './store/matches/effects';
 
 @NgModule({
-  declarations: [AppComponent, CompetitionsContainerComponent, MatchesContainerComponent],
+  declarations: [AppComponent, CompetitionsContainerComponent, MatchesContainerComponent, MatchDetailsContainerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

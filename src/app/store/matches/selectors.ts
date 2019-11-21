@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 
-import { CompetitionOfMatch, Match, MatchStatus } from '../../shared/types/matches';
+import { CompetitionOfMatch, Match, MatchId } from '../../shared/types/matches';
 import { AppState } from '../index';
 import { MatchState } from './reducer';
 
@@ -16,3 +16,5 @@ export const selectCompetitionOfMatches = createSelector(
 export const selectMatchesLoading = createSelector(selectCompetitionsFeature, (state: MatchState): boolean => state.loading);
 
 export const selectMatchesError = createSelector(selectCompetitionsFeature, (state: MatchState): boolean => state.error);
+
+export const selectMatchId = createSelector(selectCompetitionsFeature, (state: MatchState): MatchId => state.selectedMatchId);

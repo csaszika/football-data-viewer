@@ -14,5 +14,5 @@ export const selectCompetitionsError = createSelector(selectCompetitionsFeature,
 
 export const selectCompetitionId = createSelector(
   selectCompetitionsFeature,
-  (state: CompetitionState): CompetitionId => state.selectedCompetition
+  (state: CompetitionState): CompetitionId => state.selectedCompetitionId
 );

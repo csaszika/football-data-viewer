@@ -7,7 +7,7 @@ export interface CompetitionState {
   competitions: Array<Competition>;
   loading: boolean;
   error: boolean;
-  selectedCompetition: CompetitionId;
+  selectedCompetitionId: CompetitionId;
 }
 
 export const initialState = (): CompetitionState => {
@@ -15,7 +15,7 @@ export const initialState = (): CompetitionState => {
     competitions: [],
     loading: false,
     error: false,
-    selectedCompetition: undefined,
+    selectedCompetitionId: undefined,
   };
 };
 
@@ -29,9 +29,10 @@ const competitionsReducer = createReducer(
   })),
   on(CompetitionActions.loadCompetitionsFailed, (state: CompetitionState) => ({ ...state, loading: false, error: true })),
   on(CompetitionActions.selectCompetition, (state: CompetitionState, { competitionId }) => {
+    console.log('reducer', competitionId);
     return {
       ...state,
-      selectedCompetition: competitionId,
+      selectedCompetitionId: competitionId,
     };
   })
 );

@@ -28,6 +28,6 @@ export class CompetitionsContainerComponent implements OnInit {
 
   navigateToMatches(item: Competition): void {
     this.store.dispatch(selectCompetition({ competitionId: item.id }));
-    this.router.navigate([`${item.name}`]);
+    this.router.navigate([item.name]);
   }
 }

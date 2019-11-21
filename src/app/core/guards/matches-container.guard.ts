@@ -14,17 +14,18 @@ import { selectCompetitionId } from '../../store/competition/selectors';
 export class MatchesContainerGuard implements CanActivate {
   private hasSelectedCompetition: boolean;
 
-  constructor(private readonly store: Store<AppState>, private readonly router: Router) {
-    store.pipe(select(selectCompetitionId), first()).subscribe((competitionId: CompetitionId) => {
-      this.hasSelectedCompetition = !!competitionId;
-    });
-  }
+  constructor(private readonly store: Store<AppState>, private readonly router: Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    this.store.pipe(select(selectCompetitionId), first()).subscribe((competitionId: CompetitionId) => {
+      this.hasSelectedCompetition = !!competitionId;
+    });
+
     if (!this.hasSelectedCompetition) {
-      this.router.navigate(['']);
+      this.router.navigate(['/']);
+      return this.hasSelectedCompetition;
     }
     return this.hasSelectedCompetition;
   }

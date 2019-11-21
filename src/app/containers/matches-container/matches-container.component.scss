@@ -18,6 +18,10 @@
       mat-card-subtitle {
         margin: 10px;
         text-align: center;
+
+        .live {
+          color: forestgreen;
+        }
       }
     }
   }

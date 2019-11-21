@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { cardListAnimation } from '../../shared/animations/card-list.animations';
 import { CompetitionId } from '../../shared/types/competitions';
-import { Match } from '../../shared/types/matches';
+import { Match, MatchStatus } from '../../shared/types/matches';
 import { AppState } from '../../store';
 import { selectCompetitionId } from '../../store/competition/selectors';
 import { getMatches } from '../../store/matches/actions';
@@ -19,6 +19,8 @@ import { selectMatches, selectMatchesError, selectMatchesLoading } from '../../s
 })
 export class MatchesContainerComponent implements OnInit {
   private selectedCompetitionId: CompetitionId;
+
+  matchStatuses = MatchStatus;
 
   matches$: Observable<Match[]> = this.store.pipe(select(selectMatches));
   loading$: Observable<boolean> = this.store.pipe(select(selectMatchesLoading));

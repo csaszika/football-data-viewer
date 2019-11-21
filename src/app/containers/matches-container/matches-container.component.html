@@ -5,7 +5,10 @@
        [@cardListAnimation]="matches.length">
     <mat-card *ngFor="let match of matches">
       <mat-card-title>{{match.homeTeam.name}} - {{match.awayTeam.name}}</mat-card-title>
-      <mat-card-subtitle>{{match.status}}</mat-card-subtitle>
+      <mat-card-subtitle [ngClass]="{
+      'live': match.status === matchStatuses.LIVE,
+      'live': match.status === matchStatuses.PAUSED,
+      'live': match.status === matchStatuses.IN_PLAY}">{{match.status}}</mat-card-subtitle>
     </mat-card>
   </div>
 

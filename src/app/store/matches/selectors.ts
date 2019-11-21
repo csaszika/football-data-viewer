@@ -1,6 +1,5 @@
 import { createSelector } from '@ngrx/store';
 
-import { CardListItem } from '../../shared/card-list/interfaces/card-list-item';
 import { CompetitionOfMatch, Match, MatchStatus } from '../../shared/types/matches';
 import { AppState } from '../index';
 import { MatchState } from './reducer';
@@ -12,15 +11,6 @@ export const selectLiveMatches = createSelector(selectCompetitionsFeature, (stat
   return state.matches.filter(
     (match: Match) => match.status === MatchStatus.LIVE || match.status === MatchStatus.IN_PLAY || match.status === MatchStatus.PAUSED
   );
-});
-export const selectMatchesForCards = createSelector(selectMatches, (matches: Match[]): CardListItem[] => {
-  return matches.map((match: Match) => {
-    return {
-      id: match.id,
-      title: `${match.homeTeam.name} - ${match.awayTeam.name}`,
-      description: match.status,
-    };
-  });
 });
 
 export const selectCompetitionOfMatches = createSelector(

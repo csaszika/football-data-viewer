@@ -4,10 +4,10 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { cardListAnimation } from '../../shared/animations/card-list.animations';
-import { CardListItem } from '../../shared/card-list/interfaces/card-list-item';
+import { Competition } from '../../shared/types/competitions';
 import { AppState } from '../../store';
 import { getCompetitions, selectCompetition } from '../../store/competition/actions';
-import { selectCompetitionsError, selectCompetitionsForCards, selectCompetitionsLoading } from '../../store/competition/selectors';
+import { selectCompetitions, selectCompetitionsError, selectCompetitionsLoading } from '../../store/competition/selectors';
 
 @Component({
   selector: 'app-leagues-container',
@@ -16,7 +16,7 @@ import { selectCompetitionsError, selectCompetitionsForCards, selectCompetitions
   animations: [cardListAnimation],
 })
 export class CompetitionsContainerComponent implements OnInit {
-  competitions$: Observable<CardListItem[]> = this.store.pipe(select(selectCompetitionsForCards));
+  competitions$: Observable<Competition[]> = this.store.pipe(select(selectCompetitions));
   loading$: Observable<boolean> = this.store.pipe(select(selectCompetitionsLoading));
   error$: Observable<boolean> = this.store.pipe(select(selectCompetitionsError));
 
@@ -26,8 +26,8 @@ export class CompetitionsContainerComponent implements OnInit {
     this.store.dispatch(getCompetitions());
   }
 
-  navigateToMatches(item: CardListItem): void {
+  navigateToMatches(item: Competition): void {
     this.store.dispatch(selectCompetition({ competitionId: item.id }));
-    this.router.navigate([`${item.title}`]);
+    this.router.navigate([`${item.name}`]);
   }
 }

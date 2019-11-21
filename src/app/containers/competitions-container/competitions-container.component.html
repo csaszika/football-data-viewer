@@ -1,7 +1,10 @@
 <section class="competitions-container">
 
   <div *ngIf="(competitions$ | async) as competitions" [@cardListAnimation]="competitions.length">
-    <app-card-list [navCardItems]="competitions" (cardClick)="navigateToMatches($event)"></app-card-list>
+    <mat-card *ngFor="let competition of competitions" (click)="navigateToMatches(competition)">
+      <mat-card-title>{{competition.name}}</mat-card-title>
+      <mat-card-subtitle>{{competition.area.name}}</mat-card-subtitle>
+    </mat-card>
   </div>
 
   <div *ngIf="loading$ | async">Loading...</div>

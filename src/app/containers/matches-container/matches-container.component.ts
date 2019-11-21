@@ -4,13 +4,12 @@ import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 import { cardListAnimation } from '../../shared/animations/card-list.animations';
-import { CardListItem } from '../../shared/card-list/interfaces/card-list-item';
 import { CompetitionId } from '../../shared/types/competitions';
-import { CompetitionOfMatch, Match } from '../../shared/types/matches';
+import { Match } from '../../shared/types/matches';
 import { AppState } from '../../store';
 import { selectCompetitionId } from '../../store/competition/selectors';
 import { getMatches } from '../../store/matches/actions';
-import { selectCompetitionOfMatches, selectMatchesError, selectMatchesForCards, selectMatchesLoading } from '../../store/matches/selectors';
+import { selectMatches, selectMatchesError, selectMatchesLoading } from '../../store/matches/selectors';
 
 @Component({
   selector: 'app-matches-container',
@@ -21,8 +20,7 @@ import { selectCompetitionOfMatches, selectMatchesError, selectMatchesForCards, 
 export class MatchesContainerComponent implements OnInit {
   private selectedCompetitionId: CompetitionId;
 
-  matches$: Observable<CardListItem[]> = this.store.pipe(select(selectMatchesForCards));
-  competition$: Observable<CompetitionOfMatch> = this.store.pipe(select(selectCompetitionOfMatches));
+  matches$: Observable<Match[]> = this.store.pipe(select(selectMatches));
   loading$: Observable<boolean> = this.store.pipe(select(selectMatchesLoading));
   error$: Observable<boolean> = this.store.pipe(select(selectMatchesError));
 

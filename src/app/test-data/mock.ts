@@ -1,7 +1,7 @@
 // tslint:disable:no-null-keyword
-import { CompetitionList } from '../../shared/types/competitions';
+import { CompetitionList } from '../shared/types/competitions';
 
-export const leagues: CompetitionList = {
+export const competitionsData: CompetitionList = {
   count: 148,
   filters: {},
   competitions: [

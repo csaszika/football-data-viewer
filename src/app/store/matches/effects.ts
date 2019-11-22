@@ -35,5 +35,5 @@ export class MatchesEffects {
     )
   );
 
-  constructor(private actions$: Actions, private readonly http: HttpClient) {}
+  constructor(private readonly actions$: Actions, private readonly http: HttpClient) {}
 }

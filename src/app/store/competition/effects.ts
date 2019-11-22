@@ -22,5 +22,5 @@ export class CompetitionsEffects {
     )
   );
 
-  constructor(private actions$: Actions, private readonly http: HttpClient) {}
+  constructor(private readonly actions$: Actions, private readonly http: HttpClient) {}
 }

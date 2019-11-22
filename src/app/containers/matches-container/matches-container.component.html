@@ -8,9 +8,7 @@
     <mat-card *ngFor="let match of matches" (click)="navigateToMatchDetails(match)">
       <mat-card-title>{{match.homeTeam.name}} - {{match.awayTeam.name}}</mat-card-title>
       <mat-card-subtitle [ngClass]="{
-      'live': match.status === matchStatuses.LIVE,
-      'live': match.status === matchStatuses.PAUSED,
-      'live': match.status === matchStatuses.IN_PLAY}">{{match.status}}</mat-card-subtitle>
+      'live': match.status === matchStatuses.LIVE || match.status === matchStatuses.PAUSED || match.status === matchStatuses.IN_PLAY}">{{match.status}}</mat-card-subtitle>
     </mat-card>
   </div>
 

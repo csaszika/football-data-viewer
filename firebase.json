@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "football-data-viewer",
+      "public": "dist/football-data-viewer",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "football-data-dded8": {
+      "hosting": {
+        "football-data-viewer": [
+          "football-data-dded8"
+        ]
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { CompetitionOfMatch, Match, MatchId } from '../../shared/types/matches';
+import { CompetitionOfMatch, Match, MatchDetails, MatchId } from '../../shared/types/matches';
 import * as MatchesActions from './actions';
 
 /**
@@ -13,6 +13,7 @@ export interface MatchState {
   loading: boolean;
   error: boolean;
   selectedMatchId: MatchId;
+  selectedMatchDetails: MatchDetails;
 }
 
 export const initialState = (): MatchState => {
@@ -22,6 +23,7 @@ export const initialState = (): MatchState => {
     loading: false,
     error: false,
     selectedMatchId: undefined,
+    selectedMatchDetails: undefined,
   };
 };
 
@@ -40,7 +42,16 @@ const matchesReducer = createReducer(
       ...state,
       selectedMatchId: matchId,
     };
-  })
+  }),
+  on(MatchesActions.getMatchDetailsById, (state: MatchState, { matchId }) => ({ ...state, loading: true, error: false })),
+  on(MatchesActions.loadMatchDetails, (state: MatchState, { match }) => {
+    return {
+      ...state,
+      loading: false,
+      selectedMatchDetails: match,
+    };
+  }),
+  on(MatchesActions.loadMatchDetailsFailed, (state: MatchState) => ({ ...state, loading: false, error: true }))
 );
 
 // tslint:disable-next-line:only-arrow-functions

@@ -1660,7 +1660,7 @@ export const leagues: CompetitionList = {
   ],
 };
 
-export const matchResponse = {
+export const matchesResponse = {
   count: 187,
   filters: {},
   competition: {
@@ -6487,4 +6487,36 @@ export const matchResponse = {
       referees: [],
     },
   ],
+};
+
+export const matchResponse = {
+  head2head: { numberOfMatches: 1, totalGoals: 1, homeTeam: { wins: 0, draws: 0, losses: 1 }, awayTeam: { wins: 1, draws: 0, losses: 0 } },
+  match: {
+    id: 266391,
+    competition: { id: 2001, name: 'UEFA Champions League' },
+    season: { id: 495, startDate: '2019-06-25', endDate: '2020-05-30', currentMatchday: 5, winner: null },
+    utcDate: '2019-06-25T13:00:00Z',
+    status: 'FINISHED',
+    venue: 'Stadiumi Fadil Vokrri',
+    matchday: null,
+    stage: 'PRELIMINARY_SEMI_FINALS',
+    group: 'Preliminary Semi-finals',
+    lastUpdated: '2019-09-26T15:30:06Z',
+    score: {
+      winner: 'AWAY_TEAM',
+      duration: 'REGULAR',
+      fullTime: { homeTeam: 0, awayTeam: 1 },
+      halfTime: { homeTeam: 0, awayTeam: 0 },
+      extraTime: { homeTeam: null, awayTeam: null },
+      penalties: { homeTeam: null, awayTeam: null },
+    },
+    homeTeam: { id: 8102, name: 'SP Tre Penne' },
+    awayTeam: { id: 1879, name: 'FC Santa Coloma' },
+    referees: [
+      { id: 38757, name: 'Ian McNabb', nationality: null },
+      { id: 38600, name: 'Paul Robinson', nationality: null },
+      { id: 38758, name: 'Stephen Bell', nationality: null },
+      { id: 38477, name: 'Jamie Robinson', nationality: null },
+    ],
+  },
 };

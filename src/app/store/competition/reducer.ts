@@ -29,7 +29,6 @@ const competitionsReducer = createReducer(
   })),
   on(CompetitionActions.loadCompetitionsFailed, (state: CompetitionState) => ({ ...state, loading: false, error: true })),
   on(CompetitionActions.selectCompetition, (state: CompetitionState, { competitionId }) => {
-    console.log('reducer', competitionId);
     return {
       ...state,
       selectedCompetitionId: competitionId,

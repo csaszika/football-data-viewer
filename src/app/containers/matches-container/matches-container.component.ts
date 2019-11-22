@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
@@ -10,7 +11,6 @@ import { AppState } from '../../store';
 import { selectCompetitionId } from '../../store/competition/selectors';
 import { getMatches, selectMatch } from '../../store/matches/actions';
 import { selectCompetitionOfMatches, selectMatches, selectMatchesError, selectMatchesLoading } from '../../store/matches/selectors';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-matches-container',
@@ -39,8 +39,7 @@ export class MatchesContainerComponent implements OnInit {
   }
 
   navigateToMatchDetails(match: Match): void {
-    this.store.dispatch(selectMatch({ matchId: match.id }));
-    // I use id instead of "event-name" in url, because there is no unique event-name like property in match object
+    // I use id instead of "event-name" in url, because there is no event-name like property in match object
     this.router.navigate([match.id], { relativeTo: this.activatedRoute });
   }
 }

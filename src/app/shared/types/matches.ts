@@ -55,9 +55,25 @@ export interface Match {
   ];
 }
 
+export interface MatchDetails extends Match {
+  competition: { id: CompetitionId; name: string };
+  minute: number; // backend not provide it but example response has it, perhaps comes if status is live
+  attendance: number; // backend not provide it but example response has it, perhaps comes if status is live
+}
+
 export interface MatchesResponse {
   count: number;
   filters: object;
   competition: CompetitionOfMatch;
   matches: Array<Match>;
+}
+
+export interface MatchResponse {
+  head2head: {
+    numberOfMatches: number;
+    totalGoals: number;
+    homeTeam: { wins: number; draws: number; losses: number };
+    awayTeam: { wins: number; draws: number; losses: number };
+  };
+  match: MatchDetails;
 }

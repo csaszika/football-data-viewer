@@ -1,0 +1,24 @@
+.match-details-container {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin: 10px;
+  color: darkcyan;
+
+  .match-details-container__competition-name {
+    font-size: 24px;
+  }
+
+  .match-details-container__details {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+
+    .match-details-container__details__score {
+      font-size: 48px;
+    }
+    .match-details-container__details__teams {
+      font-size: 32px;
+    }
+  }
+}

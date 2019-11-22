@@ -2,7 +2,7 @@
   <div *ngIf="details$ | async as details" class="match-details-container">
     <h1 class="match-details-container__competition-name">{{details.competitionName}}</h1>
 
-    <article class="match-details-container__details">
+    <details class="match-details-container__details">
       <h5 class="match-details-container__details__score">{{details.homeScore}} : {{details.awayScore}}</h5>
       <h4 class="match-details-container__details__teams">{{details.homeTeam}} - {{details.awayTeam}}</h4>
 
@@ -10,7 +10,7 @@
       <span>{{details.date | date}}</span>
       <span>{{details.period}}</span>
       <span>{{details.minute}}</span>
-    </article>
+    </details>
   </div>
 
   <div *ngIf="loading$ | async">Loading...</div>
